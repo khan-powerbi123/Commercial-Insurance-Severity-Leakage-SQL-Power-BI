@@ -3,24 +3,16 @@
 **One-liner**  
 End-to-end T-SQL: staged → core → mart. Finds **severity QoQ** hotspots, **reserve-leakage** flags, **vendor IQR** outliers, notes-based red flags (missed subrogation, late FNOL), and a final **risk-score view**.
 
-
+**Why it’s useful**  
+• Real insurance scenarios (leakage, reserves, subrogation, late FNOL)  
+• Clear run order + small sample outputs for quick review  
 • Uses **window functions** (LAG, ROW_NUMBER, PERCENTILE_CONT), **recursive CTE**, **GROUPING SETS**
 
-**Quick links**  
+  
 **Quick links**  
 • [`sql/`](sql) – scripts in run order  
 • [`results/`](results) – tiny CSV samples  
 • [`images/`](images) – screenshots
-
-goal
-
-* simulate messy insurance claims data, clean it, and find risk signals:
-* severity spikes by quarter (lob + state)
-* reserve leakage flags
-* duplicate payments 
-* vendor outliers
-* notes keywords (missed subrogation, late fnol, duplicate billing)
-* a final risk view to rank claims
 
 ---
 
@@ -81,3 +73,4 @@ goal
 
 ## Tech used
 SQL Server (T-SQL). Window functions, recursive CTE, GROUPING SETS, PERCENTILE_CONT.
+
