@@ -1,6 +1,16 @@
-Severity \& Leakage — SQL Case Study
+# Severity & Leakage — SQL Case Study
+
+**One-liner**  
+End-to-end T-SQL: staged → core → mart. Finds **severity QoQ** hotspots, **reserve-leakage** flags, **vendor IQR** outliers, notes-based red flags (missed subrogation, late FNOL), and a final **risk-score view**.
 
 
+• Uses **window functions** (LAG, ROW_NUMBER, PERCENTILE_CONT), **recursive CTE**, **GROUPING SETS**
+
+**Quick links**  
+**Quick links**  
+• [`sql/`](sql) – scripts in run order  
+• [`results/`](results) – tiny CSV samples  
+• [`images/`](images) – screenshots
 
 goal
 
@@ -12,76 +22,62 @@ goal
 * notes keywords (missed subrogation, late fnol, duplicate billing)
 * a final risk view to rank claims
 
+---
+
+## Contents
+1) How to run (5 scripts)  
+2) Outputs at a glance (CSV)  
+3) Screenshots  
+4) What this shows  
+5) Repo map  
+6) Tech used
+
+---
 
 
-stack
-
-sql server (t-sql). three schemas:
-
-
-
-* staged = messy/raw
-* core = cleaned/typed with keys
-* mart = reporting views
-
+## How to run (SQL Server / SSMS)
+1. Open `sql/01_create_db_and_staging.sql` → **Execute**  
+2. Switch database to **SeverityLeakageCase**  
+3. Run, in order:  
+   - `sql/02_core_etl.sql`  
+   - `sql/03_quality_checks.sql`  
+   - `sql/04_analysis_clues.sql`  
+   - `sql/05_mart_views.sql`
 
 
-data size
+---
 
-about 5k policies, 20k claims, 100k payments, 500 adjusters, 200k notes.
+## Outputs at a glance (CSV in `/results`)
+- **Severity hotspots (top 5):** `results/clue1_severity_hotspots_top5.csv`  
+- **Reserve flags (top 100):** `results/clue2_reserve_flags_top100.csv`  
+- **Vendor outliers – high (top 50):** `results/clue4_vendor_outliers_high_top50.csv`  
+- **Notes flags (top 50):** `results/clue6_notes_flags_top50.csv`  
+- **Risk signals view (top 50):** `results/claim_risk_signals_top50.csv`  
+- **Duplicate payments:** none returned under same **date + cost_type + amount + check_number**
 
-
-
-how to run
-
-
-
-1. run sql/01\_create\_db\_and\_staging.sql
-2. run sql/02\_core\_etl.sql
-3. run sql/03\_quality\_checks.sql
-4. run sql/04\_analysis\_clues.sql
-5. run sql/05\_mart\_views.sql
+---
 
 
-
-sample results (csv in /results)
-
-
-
-* clue1 severity hotspots: results/clue1\_severity\_hotspots\_top5.csv
-* clue2 reserve flags: results/clue2\_reserve\_flags\_top100.csv
-* clue3 duplicate payments: no rows in this dataset under same date + cost\_type + amount + check\_number
-* clue4 vendor outliers (high): results/clue4\_vendor\_outliers\_high\_top50.csv
-* clue6 notes flags: results/clue6\_notes\_flags\_top50.csv
-* mart risk signals: results/claim\_risk\_signals\_top50.csv
+## Screenshots (in `/images`)
+![Risk signals view](images/risk_signals_top.png)
+- `images/clue1_hotspots.png`  
+- `images/clue2_reserve_flags.png`
 
 
+## What this shows (short)
+- **End-to-end pipeline:** messy staging → clean core → analytics view  
+- **Business findings:** severity spikes, reserve adequacy issues, vendor anomalies, missed subrogation / late FNOL  
+- **SQL depth:** window functions (LAG, ROW_NUMBER, PERCENTILE_CONT), recursive CTE hierarchy, GROUPING SETS
 
-screenshots (in /images)
+---
 
+## Repo map
+- `/sql` → all scripts in run order  
+- `/results` → small CSV samples (top rows only)  
+- `/images` → tiny screenshots for quick viewing  
+- `README.md` → this page
 
+---
 
-* images/clue1\_hotspots.png
-* images/clue2\_reserve\_flags.png
-* images/risk\_signals\_top.png
-
-
-
-what this shows (short)
-
-
-
-* end-to-end pipeline: messy staging → clean core → analytics view
-* real insurance ideas: reserve adequacy, duplicate spend, vendor outliers, missed subrogation, late reporting
-* advanced sql: window functions, lag, recursive cte, percentile\_cont, grouping sets
-
-
-
-folder map
-
-
-
-* /sql → all scripts in run order
-* /results → small csv samples (top rows only)
-* /images → tiny screenshots (for quick viewing)
-* README.md → this page
+## Tech used
+SQL Server (T-SQL). Window functions, recursive CTE, GROUPING SETS, PERCENTILE_CONT.
