@@ -66,9 +66,7 @@ CREATE TABLE core.core_notes(
 );
 
 -- 2.2 Clean policies to core_policies
-
 -- Normalize strings, trim, upcase state/lob, parse dates safely
-
 WITH base AS (
 SELECT
 	LTRIM(RTRIM(policy_number)) AS policy_number,
@@ -105,7 +103,6 @@ SELECT
 
   --2.3 Clean adjusters to core_adjuster, then wire supervisor_id (two-pass)
   -- Pass 1: load adjusters without supervisor linkage
-
   INSERT INTO core.core_adjuster(adjuster_ext_id, full_name, hire_date, office, supervisor_id)
   SELECT
 	LTRIM(RTRIM(adjuster_ext_id)),
@@ -116,8 +113,7 @@ SELECT
   FROM staged.staged_adjuster
   WHERE	adjuster_ext_id IS NOT NULL;
 
-  --Pass 2: resolve supervisor by matching ext ids already loaded 
-
+--Pass 2: resolve supervisor by matching ext ids already loaded 
  UPDATE a
 SET supervisor_id = sup.adjuster_id -- 4) write the supervisor's PK onto the child row
 FROM core.core_adjuster a           -- 1) alias the table being updated as c (the "child")
@@ -126,8 +122,8 @@ JOIN staged.staged_adjuster s       -- 2) bring in supervisor_ext_id from stagin
 JOIN core.core_adjuster sup          -- 3) self-join: find the supervisor row in the same core table
     ON sup.adjuster_ext_id = s.supervisor_ext_id;
 
--- 2.4 Clean claims to core_claims with deduping (ROW_NUMBER)
 
+-- 2.4 Clean claims to core_claims with deduping (ROW_NUMBER)
 ;with ranked AS (
 SELECT 
 	LTRIM(RTRIM(claim_number)) AS claim_number,
@@ -179,7 +175,6 @@ SELECT
 		WHERE r.rn = 1;
 
 		--2.5 Clean payments to core_payments
-
 		insert into core.core_payments (claim_id, payment_date, payee_type, vendor_id, cost_type, cost_category, amount, check_number)
 		SELECT
 			c.claim_id,
@@ -210,4 +205,5 @@ SELECT
 				FROM staged.staged_notes s
 				JOIN core.core_claims c
 				on s.claim_number = c.claim_number
+
 				WHERE s.note_text IS NOT NULL;
