@@ -4,12 +4,12 @@ IF DB_ID('SeverityLeakageCase') IS NULL
 GO
 USE SeverityLeakageCase;
 GO
--- Schema for pipeline ~ folders/namespaces inside the database to organize tables: pipeline(step by step flow)
+-- Schema for pipeline ~ folders/namespaces inside the database to organize tables: pipeline
 IF NOT EXISTS (SELECT 1 FROM sys.schemas WHERE name = 'staged') EXEC('CREATE SCHEMA staged'); --messy/raw data.
 IF NOT EXISTS (SELECT 1 FROM sys.schemas WHERE name = 'core')   EXEC('CREATE SCHEMA core');   --cleaned/standardized data.
 IF NOT EXISTS (SELECT 1 FROM sys.schemas WHERE name = 'mart')   EXEC('CREATE SCHEMA mart');   --reporting/summary views.
 
---Volume parameters (tweek as you like)
+--Volume parameters
 DECLARE @policies INT = 5000;    -- ~ companies/policies
 DECLARE @claims   INT = 20000;   -- ~ claims
 DECLARE @payments INT = 100000;  -- ~ payment rows
@@ -79,7 +79,6 @@ note_text         varchar(max)
 );
 
 --1.2 Helper: big numbers source (tally) and utility functions
-
 -- Tally source using system tables
 WITH src AS (
   SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS n
@@ -90,7 +89,7 @@ DROP TABLE #warmup;
 
 
 -- 1.3 Populate staging with messy data
--- ~ Policies
+-- Policies
 ;WITH n AS (
   SELECT TOP (@policies)   --5000
   ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS i
@@ -133,9 +132,7 @@ SELECT
   from n;
 
 
-          -- Claims (with deliberate duplicates and null-ish strings)
-
-
+-- Claims (with deliberate duplicates and null-ish strings)
   ;WITH n AS (
   SELECT TOP (@claims) ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS i
   FROM sys.all_objects a CROSS JOIN sys.all_objects b
@@ -236,8 +233,7 @@ SELECT
   from n;
 
 
-
-           -- Payments (typos, mixed formats, null-ish amounts, duplicate check rows) ~ 100k rows  
+-- Payments (typos, mixed formats, null-ish amounts, duplicate check rows) ~ 100k rows  
 ;WITH n AS (
   SELECT TOP (@payments) ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS i
   FROM sys.all_objects a 
@@ -286,7 +282,6 @@ WHERE (ABS(CHECKSUM(NEWID()))%5)=0;
 
 
 --Notes (free text with keywords for later clues)
-
 ;WITH n AS (
   SELECT TOP (@notes) ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS i
   FROM sys.all_objects a CROSS JOIN sys.all_objects b
@@ -314,8 +309,7 @@ SELECT
   from n;
 
 
-  --Quick counts
-
+--Quick counts
  SELECT 
 	'policies' Src, 
 	COUNT(*) AS 'Counts'
@@ -343,4 +337,5 @@ FROM staged.staged_notes;
 
 -- checking Notes table all columns & 50 Rows 
 select TOP 50 *
+
 from staged.staged_notes;
