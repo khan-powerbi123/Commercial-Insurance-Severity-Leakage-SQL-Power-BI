@@ -56,7 +56,7 @@ End-to-end T-SQL: staged → core → mart. Finds **severity QoQ** hotspots, **r
 - `images/clue2_reserve_flags.png`
 
 
-## What this shows (short)
+## What this shows
 - **End-to-end pipeline:** messy staging → clean core → analytics view  
 - **Business findings:** severity spikes, reserve adequacy issues, vendor anomalies, missed subrogation / late FNOL  
 - **SQL depth:** window functions (LAG, ROW_NUMBER, PERCENTILE_CONT), recursive CTE hierarchy, GROUPING SETS
@@ -73,4 +73,5 @@ End-to-end T-SQL: staged → core → mart. Finds **severity QoQ** hotspots, **r
 
 ## Tech used
 SQL Server (T-SQL). Window functions, recursive CTE, GROUPING SETS, PERCENTILE_CONT.
+
 
