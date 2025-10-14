@@ -18,7 +18,7 @@ DECLARE @notes    INT = 200000;  -- ~ note lines
 
 -- 1) Step 1: Staging design (messy by design) + data generation
 -- 1.1 Create messy staging tables
--- ~ Dates and amounts deliberately as varchar; minimal constraints; duplicates allowed
+--  Dates and amounts deliberately as varchar; minimal constraints; duplicates allowed
 IF OBJECT_ID('staged.staged_policies') IS NOT NULL DROP TABLE staged.staged_policies;
 CREATE TABLE staged.staged_policies (
 policy_number   varchar(30),
@@ -338,4 +338,5 @@ FROM staged.staged_notes;
 select TOP 50 *
 
 from staged.staged_notes;
+
 
