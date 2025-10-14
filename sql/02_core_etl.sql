@@ -89,7 +89,7 @@ SELECT
 	TRY_CONVERT(date, NULLIF(eff_raw, '')) AS effective_date,
 	TRY_CONVERT(date, NULLIF(exp_raw, '')) AS expiry_date,
 	CASE 
-		WHEN LEN(state_raw) =2 THEN state_raw
+		WHEN LEN(state_raw) = 2 THEN state_raw
 		WHEN state_raw LIKE 'IL%' THEN 'IL'
 		WHEN state_raw LIKE 'WI%' THEN 'WI'
 	ELSE NULL END AS state,
@@ -206,4 +206,5 @@ SELECT
 				JOIN core.core_claims c
 				on s.claim_number = c.claim_number
 				WHERE s.note_text IS NOT NULL;
+
 
