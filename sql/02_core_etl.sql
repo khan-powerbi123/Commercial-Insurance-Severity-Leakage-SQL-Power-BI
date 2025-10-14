@@ -182,7 +182,7 @@ SELECT
 			UPPER(NULLIF(LTRIM(RTRIM(s.payee_type)),'')) AS payee_type,
 			NULLIF(LTRIM(RTRIM(vendor_id)),'') AS vendor_id,
 			CASE 
-			WHEN LTRIM(RTRIM(s.cost_type))  IN ('Indemnty', 'indemnty', 'INDEMNTY') THEN 'Indemnity'
+			WHEN LTRIM(RTRIM(s.cost_type)) IN ('Indemnty', 'indemnty', 'INDEMNTY') THEN 'Indemnity'
 			ELSE NULLIF(LTRIM(RTRIM(s.cost_type)), '') END AS cost_type,
 			UPPER(NULLIF(LTRIM(RTRIM(s.cost_category)),'')) AS cost_category,
 			TRY_CONVERT(money, NULLIF(LTRIM(RTRIM(s.amount)), 'NULL')) AS amount,
@@ -205,5 +205,5 @@ SELECT
 				FROM staged.staged_notes s
 				JOIN core.core_claims c
 				on s.claim_number = c.claim_number
-
 				WHERE s.note_text IS NOT NULL;
+
