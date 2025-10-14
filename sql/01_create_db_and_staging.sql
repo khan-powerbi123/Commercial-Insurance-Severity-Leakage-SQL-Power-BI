@@ -90,7 +90,7 @@ DROP TABLE #warmup;
 -- 1.3 Populate staging with messy data
 -- Policies
 ;WITH n AS (
-  SELECT TOP (@policies)   --5000
+  SELECT TOP (@policies)   --5k
   ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS i
   FROM sys.all_objects a 
   CROSS JOIN sys.all_objects b
@@ -133,7 +133,7 @@ SELECT
 
 -- Claims (with deliberate duplicates and null-ish strings)
   ;WITH n AS (
-  SELECT TOP (@claims) ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS i
+  SELECT TOP (@claims) ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS i --20k
   FROM sys.all_objects a CROSS JOIN sys.all_objects b
 )
 INSERT staged.staged_claims
@@ -207,7 +207,7 @@ ORDER BY NEWID();
 
 --Adjusters (with loose supervisor links)
 ;WITH n AS (
-  SELECT TOP (@adjuster) ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS i
+  SELECT TOP (@adjuster) ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS i --500
   FROM sys.all_objects a CROSS JOIN sys.all_objects b
 )
 INSERT staged.staged_adjuster(adjuster_ext_id, full_name, hire_date, office, supervisor_ext_id)
@@ -234,7 +234,7 @@ SELECT
 
 -- Payments (typos, mixed formats, null-ish amounts, duplicate check rows) ~ 100k rows  
 ;WITH n AS (
-  SELECT TOP (@payments) ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS i
+  SELECT TOP (@payments) ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS i --100k
   FROM sys.all_objects a 
   CROSS JOIN sys.all_objects b
 )
@@ -282,7 +282,7 @@ WHERE (ABS(CHECKSUM(NEWID()))%5)=0;
 
 --Notes (free text with keywords for later clues)
 ;WITH n AS (
-  SELECT TOP (@notes) ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS i
+  SELECT TOP (@notes) ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS i --200k
   FROM sys.all_objects a CROSS JOIN sys.all_objects b
 )
 INSERT staged.staged_notes(claim_number, note_time, author, note_text)
@@ -338,6 +338,7 @@ FROM staged.staged_notes;
 select TOP 50 *
 
 from staged.staged_notes;
+
 
 
 
