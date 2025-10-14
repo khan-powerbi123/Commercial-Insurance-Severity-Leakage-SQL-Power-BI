@@ -83,7 +83,7 @@ SELECT
 --Payments haven’t been made recently,
 --Or the claim is old but still “open.”
  --Surfaced claims with heavy reserves but little recent payment activity 
--- → mean reserve drift, stalled claim handling, or potential leakage (more money than necessary locked in reserves).
+-- mean reserve drift, stalled claim handling, or potential leakage (more money than necessary locked in reserves).
 
  --Clue 3. Duplicate or erroneous payments
  SELECT
@@ -231,3 +231,4 @@ SELECT
 --General Liability (GL) is the largest driver at $179M.
 --Within GL, Illinois is the biggest hotspot (~$117M).
 --Daily detail highlights spikes and anomalies for further investigation.
+
