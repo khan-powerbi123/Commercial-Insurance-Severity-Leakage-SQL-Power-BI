@@ -337,8 +337,8 @@ FROM staged.staged_notes;
 
 -- checking Notes table all columns & 50 Rows 
 select TOP 50 *
-
 from staged.staged_notes;
+
 
 
 
