@@ -1,4 +1,4 @@
-# Severity & Leakage -- SQL Case Study
+# Severity & Leakage - SQL Case Study
 
 **Overview**  
 End-to-end T-SQL: staged → core → mart. Finds **severity QoQ** hotspots, **reserve-leakage** flags, **vendor IQR** outliers, notes-based red flags (missed subrogation, late FNOL), and a final **risk-score view**.
@@ -64,6 +64,7 @@ End-to-end T-SQL: staged → core → mart. Finds **severity QoQ** hotspots, **r
 
 ## Tech used
 SQL Server (T-SQL). Window functions, recursive CTE, GROUPING SETS, PERCENTILE_CONT.
+
 
 
 
