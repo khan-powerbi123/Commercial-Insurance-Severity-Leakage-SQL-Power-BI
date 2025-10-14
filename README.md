@@ -20,9 +20,8 @@ End-to-end T-SQL: staged → core → mart. Finds **severity QoQ** hotspots, **r
 1) How to run (5 scripts)  
 2) Outputs at a glance (CSV)  
 3) Screenshots  
-4) What this shows  
-5) Repo map  
-6) Tech used
+4) What this shows    
+5) Tech used
 
 ---
 
@@ -65,6 +64,7 @@ End-to-end T-SQL: staged → core → mart. Finds **severity QoQ** hotspots, **r
 
 ## Tech used
 SQL Server (T-SQL). Window functions, recursive CTE, GROUPING SETS, PERCENTILE_CONT.
+
 
 
 
