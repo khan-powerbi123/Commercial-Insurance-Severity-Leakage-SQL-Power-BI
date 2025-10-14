@@ -216,7 +216,8 @@ SELECT
   CONCAT('Adjuster ', i),
   CASE 
 	WHEN i%9=0 
-		THEN '' ELSE CONVERT(varchar(10), DATEADD(day, - (i%3650), GETDATE()), 23) 
+		THEN '' 
+  ELSE CONVERT(varchar(10), DATEADD(day, - (i%3650), GETDATE()), 23) 
   END,
   CASE 
 	WHEN i%3=0 
@@ -338,6 +339,7 @@ FROM staged.staged_notes;
 select TOP 50 *
 
 from staged.staged_notes;
+
 
 
 
