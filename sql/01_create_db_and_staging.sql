@@ -55,7 +55,7 @@ payment_date    varchar(20),
 payee_type      varchar(30),     --Provider/Vendor/etc. With inconsistencies 
 vendor_id       varchar(30),
 cost_type       varchar(30),     -- Medical/Indemnity but typos like 'Indemnty'
-cost_category   varchar(30),     --Trearment/Legal, Others ... 
+cost_category   varchar(30),     --Treatment/Legal, Others ... 
 amount          varchar(30),     --numeric as string or 'NULL'
 check_number    varchar(30)
 );
@@ -338,5 +338,6 @@ FROM staged.staged_notes;
 select TOP 50 *
 
 from staged.staged_notes;
+
 
 
