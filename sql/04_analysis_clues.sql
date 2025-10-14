@@ -227,8 +227,9 @@ SELECT
 	)
 	ORDER BY p.lob, c.loss_state, c.loss_date;
 --📌 Interpretation ->	
---Total incurred claims across all lines and states ≈ $270M.
+--Total incurred claims across all lines and states = $270M.
 --General Liability (GL) is the largest driver at $179M.
---Within GL, Illinois is the biggest hotspot (~$117M).
+--Within GL, Illinois is the biggest hotspot ($117M).
 --Daily detail highlights spikes and anomalies for further investigation.
+
 
