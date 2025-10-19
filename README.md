@@ -66,11 +66,12 @@ End-to-end T-SQL: staged → core → mart. Finds **severity QoQ** hotspots, **r
 
 ### Power BI Dashboard Preview
 | Page 1 | Page 2 | Page 3 |
-|:--:|:--:|:--:|
+|:--:|:--:|:--:|:--:|
 | ![Page 1 – Claim Risk Drivers](visuals/clue1-claim-risk-drivers.png) | ![Page 2 – Adjuster Performance](visuals/clue2-adjuster-performance.png) | ![Page 3 – Leakage Flags Analysis](visuals/clue3-leakage-flags.png) | ![Page 4 – Executive Rollups](visuals/clue4-executive-rollups.png) |
 
 
 ---
+
 
 
 
