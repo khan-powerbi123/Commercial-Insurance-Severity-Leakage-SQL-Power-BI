@@ -50,8 +50,8 @@ End-to-end T-SQL: staged → core → mart. Finds **severity QoQ** hotspots, **r
 
 ## Screenshots (in `/images`)
 ![Risk signals view](images/risk_signals_top.png)
-- `images/clue1_hotspots.png`  
-- `images/clue2_reserve_flags.png`
+- ![Hotspots](images/clue1_hotspots.png)  
+- ![reserve flags](images/clue2_reserve_flags.png)
 
 ---
 
@@ -71,6 +71,7 @@ End-to-end T-SQL: staged → core → mart. Finds **severity QoQ** hotspots, **r
 
 
 ---
+
 
 
 
