@@ -53,6 +53,8 @@ End-to-end T-SQL: staged → core → mart. Finds **severity QoQ** hotspots, **r
 - `images/clue1_hotspots.png`  
 - `images/clue2_reserve_flags.png`
 
+---
+
 
 ## What this shows
 - **End-to-end pipeline:** messy staging → clean core → analytics view  
@@ -62,7 +64,13 @@ End-to-end T-SQL: staged → core → mart. Finds **severity QoQ** hotspots, **r
 ---
 
 
+### Power BI Dashboard Preview
+| Page 1 | Page 2 | Page 3 |
+|:--:|:--:|:--:|
+| ![Page 1 – Claim Risk Drivers](visuals/clue1-claim-risk-drivers.png) | ![Page 2 – Adjuster Performance](clue2-adjuster-performance.png) | ![Page 3 – Leakage Flags Analysis](clue3-leakage-flags.png) | ![Page 4 – Executive Rollups](clue4-executive-rollups.png) |
 
+
+---
 
 
 
