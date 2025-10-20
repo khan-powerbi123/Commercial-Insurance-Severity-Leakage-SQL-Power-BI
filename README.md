@@ -30,10 +30,10 @@ End-to-end T-SQL: staged → core → mart. Finds **severity QoQ** hotspots, **r
 ---
 
 
-### 💼 Analytical Highlights
-- **End-to-end pipeline:** messy staging → clean core → analytics view  
-- **Business findings:** severity spikes, reserve adequacy issues, vendor anomalies, missed subrogation / late FNOL  
-- **SQL depth:** window functions (LAG, ROW_NUMBER, PERCENTILE_CONT), recursive CTE hierarchy, GROUPING SETS
+### 💡 Key Insights from Analysis 
+- Severity spikes and reserve adequacy issues  
+- Vendor anomalies and duplicate billing patterns  
+- Missed subrogation and late FNOL trends
 
 ---
 
@@ -59,6 +59,7 @@ Each dashboard page represents a different analytical *Clue* in the end-to-end r
 
 
 ---
+
 
 
 
