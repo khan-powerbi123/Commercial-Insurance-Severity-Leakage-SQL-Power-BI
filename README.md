@@ -11,8 +11,7 @@ End-to-end T-SQL: staged → core → mart. Finds **severity QoQ** hotspots, **r
   
 **Quick links**  
 • [`sql/`](sql) – scripts in run order  
-• [`results/`](results) – tiny CSV samples  
-• [`images/`](images) – output screenshots
+• [`results/`](results) – sql outputs in CSV samples  
 • [`visuals/`](visuals) – Power BI Visuals
 
 
@@ -25,14 +24,6 @@ End-to-end T-SQL: staged → core → mart. Finds **severity QoQ** hotspots, **r
 - **Notes flags (top 50):** `results/clue6_notes_flags_top50.csv`  
 - **Risk signals view (top 50):** `results/claim_risk_signals_top50.csv`  
 - **Duplicate payments:** none returned under same **date + cost_type + amount + check_number**
-
----
-
-
-## Output Screenshots (in `/images`)
-| Image 1 | Image 2 | Image 3 |
-|:--:|:--:|:--:|
-| ![Risk signals view](images/risk_signals_top.png) | ![Hotspots](images/clue1_hotspots.png) | ![reserve flags](images/clue2_reserve_flags.png) |
 
 ---
 
@@ -66,6 +57,7 @@ Each dashboard page represents a different analytical *Clue* in the end-to-end r
 
 
 ---
+
 
 
 
