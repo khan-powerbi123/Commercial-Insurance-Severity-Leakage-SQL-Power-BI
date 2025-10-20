@@ -3,8 +3,8 @@
 **End-to-End:** SQL Server (ETL + Analysis) → Power BI (Visualization)
 
 **Overview**  
-**Data Pipeline Flow:** staged → core → mart. 
--Finds **severity QoQ** hotspots, **reserve-leakage** flags, **vendor IQR** outliers, notes-based red flags (missed subrogation, late FNOL), and a final **risk-score view**.
+**Data Pipeline Flow:** staged → core → mart.
+Finds **severity QoQ** hotspots, **reserve-leakage** flags, **vendor IQR** outliers, notes-based red flags (missed subrogation, late FNOL), and a final **risk-score view**.
 
 **Why it’s useful**  
 • Real insurance scenarios (leakage, reserves, subrogation, late FNOL)  
@@ -60,6 +60,7 @@ Each dashboard page represents a different analytical *Clue* in the end-to-end r
 
 
 ---
+
 
 
 
