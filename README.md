@@ -12,20 +12,8 @@ End-to-end T-SQL: staged → core → mart. Finds **severity QoQ** hotspots, **r
 **Quick links**  
 • [`sql/`](sql) – scripts in run order  
 • [`results/`](results) – tiny CSV samples  
-• [`images/`](images) – screenshots
+• [`images/`](images) – output screenshots
 • [`visuals/`](visuals) – Power BI Visuals
-
----
-
-
-## How to run (SQL Server / SSMS)
-1. Open `sql/01_create_db_and_staging.sql` → **Execute**  
-2. Switch database to **SeverityLeakageCase**  
-3. Run, in order:  
-   - `sql/02_core_etl.sql`  
-   - `sql/03_quality_checks.sql`  
-   - `sql/04_analysis_clues.sql`  
-   - `sql/05_mart_views.sql`
 
 
 ---
@@ -41,7 +29,7 @@ End-to-end T-SQL: staged → core → mart. Finds **severity QoQ** hotspots, **r
 ---
 
 
-## Screenshots (in `/images`)
+## Output Screenshots (in `/images`)
 | Image 1 | Image 2 | Image 3 |
 |:--:|:--:|:--:|
 | ![Risk signals view](images/risk_signals_top.png) | ![Hotspots](images/clue1_hotspots.png) | ![reserve flags](images/clue2_reserve_flags.png) |
@@ -78,6 +66,7 @@ Each dashboard page represents a different analytical *Clue* in the end-to-end r
 
 
 ---
+
 
 
 
