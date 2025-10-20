@@ -1,4 +1,6 @@
-# Commerical Insurance Severity & Leakage - (SQL Case Study + Power BI Visuals)
+# Commercial Insurance Severity & Leakage (SQL Case Study + Power BI Visuals)
+
+**End-to-end flow:** SQL Server (ETL + Analysis) → Power BI (Visualization)
 
 **Overview**  
 End-to-end T-SQL: staged → core → mart. Finds **severity QoQ** hotspots, **reserve-leakage** flags, **vendor IQR** outliers, notes-based red flags (missed subrogation, late FNOL), and a final **risk-score view**.
@@ -17,7 +19,7 @@ End-to-end T-SQL: staged → core → mart. Finds **severity QoQ** hotspots, **r
 
 ---
 
-## Outputs at a glance (CSV in `/results`)
+## 📂 Outputs at a glance (CSV in `/results`)
 - **Severity hotspots (top 5):** `results/clue1_severity_hotspots_top5.csv`  
 - **Reserve flags (top 100):** `results/clue2_reserve_flags_top100.csv`  
 - **Vendor outliers – high (top 50):** `results/clue4_vendor_outliers_high_top50.csv`  
@@ -57,6 +59,7 @@ Each dashboard page represents a different analytical *Clue* in the end-to-end r
 
 
 ---
+
 
 
 
