@@ -4,7 +4,7 @@
 
 **Overview**  
 **Data Pipeline Flow:** staged (messy data) → core (cleaned data) → mart (data for visualization).  
-Identifies **severity QoQ hotspots**, **reserve-leakage flags**, **vendor IQR outliers**, and notes-based red flags such as **missed subrogation** and **late FNOL**, leading to a final **risk-score view**.
+Identifies **severity QoQ hotspots**, **reserve-leakage flags**, **vendor IQR outliers**, and notes-based red flags such as **missed subrogation** and **late FNOL**, leading to a financial **risk-score view**.
 
 
 **Quick links**  
@@ -60,6 +60,7 @@ Each dashboard page represents a different analytical *Clue* in the end-to-end r
 
 
 ---
+
 
 
 
