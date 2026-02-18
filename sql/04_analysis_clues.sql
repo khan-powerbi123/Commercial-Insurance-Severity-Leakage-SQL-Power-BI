@@ -105,7 +105,7 @@ SELECT
 	--The query returned no results, which suggests the dataset is free of duplicate disbursements under those criteria. 
     --In other words, our payment data looks clean.
 
-	--Clue 4. Vendor outliers using IQR with window functions
+	--Clue 4. Vendor payment outliers using IQR with window functions
 	WITH V as (
 	SELECT
 		vendor_id,
@@ -231,5 +231,6 @@ SELECT
 --General Liability (GL) is the largest driver at $179M.
 --Within GL, Illinois is the biggest hotspot ($117M).
 --Daily detail highlights spikes and anomalies for further investigation.
+
 
 
